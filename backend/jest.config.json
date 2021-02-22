@@ -22,7 +22,7 @@
     "verbose": true,
     "coverageThreshold": {
         "global": {
-         
+            
             "statements": 30
         }
     }

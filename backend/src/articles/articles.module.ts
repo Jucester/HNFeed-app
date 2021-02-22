@@ -6,14 +6,12 @@ import { ArticlesSchema } from './schema/articles.schema';
 
 @Module({
   imports: [
-      HttpModule.register({
-        responseType: 'json',
-      }),
-      MongooseModule.forFeature([
-        {name: 'Articles', schema: ArticlesSchema}
-    ])
+    HttpModule.register({
+      responseType: 'json',
+    }),
+    MongooseModule.forFeature([{ name: 'Articles', schema: ArticlesSchema }]),
   ],
   controllers: [ArticlesController],
-  providers: [ArticlesService]
+  providers: [ArticlesService],
 })
 export class ArticlesModule {}

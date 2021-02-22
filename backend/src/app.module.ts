@@ -8,12 +8,12 @@ import 'dotenv/config';
 
 @Module({
   imports: [
-      MongooseModule.forRoot(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-      }),
-      ScheduleModule.forRoot(),
-      ArticlesModule
+    MongooseModule.forRoot(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
+    ScheduleModule.forRoot(),
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
