@@ -1,0 +1,29 @@
+{
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "testPathIgnorePatterns": [
+        "/node_modules"
+    ],
+    "rootDir": "./",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        
+        "src/**/{!(main|app.*),}.(t|j)s"
+    ],
+    "coverageDirectory": "test/coverage",
+    "testEnvironment": "node",
+    "verbose": true,
+    "coverageThreshold": {
+        "global": {
+         
+            "statements": 30
+        }
+    }
+  }
