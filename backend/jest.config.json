@@ -15,7 +15,9 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
         
-        "src/**/{!(main|app.*),}.(t|j)s"
+      "src/**/*.{js,ts}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
     ],
     "coverageDirectory": "test/coverage",
     "testEnvironment": "node",
@@ -23,7 +25,10 @@
     "coverageThreshold": {
         "global": {
             
-            "statements": 30
+          "branches": 30,
+          "functions": 30,
+          "lines": 30,
+          "statements": 30
         }
     }
   }
