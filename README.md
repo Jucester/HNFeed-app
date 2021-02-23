@@ -11,9 +11,6 @@ The server app inserts the data from the API into a MongoDB database and then gi
 
 In our client, we can see the articles order by date (newer first) and also the user can use de delete button to delete an individiual post from his view. When a post is deleted, the article not reappear. This use localStorage to define a logic, so when the user delete a post in his view it keeps deleted even if the app is restarted. I use this approach instead of interact with the database because I think multiples users can access the app and when one user deleted a post from his view that not need to be deleted in another user view, just in the user "session".
 
-If you need it to be deleted to the database I made another repo:
-
-
 # Stack
 
 * Node.js 15.9.0
@@ -32,7 +29,7 @@ If you need it to be deleted to the database I made another repo:
 ### 1. Clone the repo
 
 ```
-git clone 
+git clone https://gitlab.com/Jucester/hn-feed.git
 ```
 
 ### 2. Run this on the cloned directory

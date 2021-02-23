@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import ArticlesList from './ArticlesList';
 
-function Articles() : JSX.Element {
+function Articles(): JSX.Element {
     return (
-        <Fragment>         
-                <ArticlesList />
-        </Fragment>
-    )
+        <div data-testid='articlesContainer'>
+            <ArticlesList />
+        </div>
+    );
 }
 
 export default Articles;
