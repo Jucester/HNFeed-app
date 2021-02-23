@@ -71,6 +71,7 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
   
     const url = article.url || article.story_url;
     const [display, setDisplay] = useState('notdisplayed');
+    const [ hover, setHover ] = useState(true);
 
 
     // To change the visibility of the delete icon
@@ -125,9 +126,9 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
         let arr = [removeds, article.story_id]
         localStorage.setItem('Removeds', JSON.stringify(arr));
     }
-
+    /* To open url in a new tab when user clicks on the row, but first verified if user  */
     const navigateToExternalUrl = (url: string, shouldOpenNewTab: boolean = true) => {
-            shouldOpenNewTab ? window.open(url, "_blank") : window.location.href = url;
+            if(shouldOpenNewTab) window.open(url, "_blank"); 
     }
 
     
@@ -135,15 +136,9 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
     return (
         <div className="listElement">
             <Arti 
-                onClick={()=> {
-                    console.log('onclick')
-                    //window.open(url, "_blank")
-                    //window.location.reload();
-                   
-                }
-            }  
-                onMouseEnter={e => showButton(e)}
-                onMouseLeave={e => hideButton(e)} 
+                onClick={ ()=> navigateToExternalUrl(url, hover) }  
+                onMouseEnter={ e => showButton(e) }
+                onMouseLeave={ e => hideButton(e) } 
             >
                 <p> { article.title || article.story_title } - <span className="author"> { article.author } </span> - </p>
     
@@ -152,7 +147,15 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
                         { showingDate() } 
                     </span>
                     <span className={display}> 
-                        <div className="icon" onClick={() => { deleteRow(); loadArticles(); }}> 
+                        <div 
+                            className="icon" 
+                            onMouseOver={ () => setHover(false) } 
+                            onMouseOut={ () => setHover(true) }
+                            onClick={() => { 
+                                deleteRow(); 
+                                loadArticles();
+                            }}
+                        > 
                             <img src={icon} alt="Delete icon" /> 
                         </div> 
                     </span> 
