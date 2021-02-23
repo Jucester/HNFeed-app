@@ -4,7 +4,7 @@ import Article from './Article';
 
 // styling container wrapper
 const containerStyle = {
-    maxWidth: '1280px',
+    padding: '5px 40px',
     margin: '0 auto',
 }
 

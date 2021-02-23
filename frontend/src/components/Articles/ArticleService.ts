@@ -12,10 +12,11 @@ export const getArticles = async () => {
 	*/
 	let arr;
 	// we save the localStorage values in an var with JSON.parse so the var can be converted to an arr
-	let removeds = JSON.parse(localStorage.getItem("Removeds"));
+	let removeds = JSON.parse(localStorage.getItem("Removeds")!);
 	if (removeds) {
+		console.log(':)')
 		// we use the .filter callback
-		arr = res.data.filter((data) => {
+		arr = res.data.filter( ( data : any ) => {
 			// first check if the localStorage var is an array so we can use the include method
 			if (Array.isArray(removeds)) {
 				if (!removeds.includes(data.story_id)) {
@@ -32,5 +33,6 @@ export const getArticles = async () => {
 		return arr;
 	}
 	// if the localStorage is null then we just retrieve all the articles
+	console.log(':)')
 	return res.data;
 };

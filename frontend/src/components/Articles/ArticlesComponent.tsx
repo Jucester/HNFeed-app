@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react';
 import ArticlesList from './ArticlesList';
 
-function News() : JSX.Element {
-
+function Articles() : JSX.Element {
     return (
-   
         <Fragment>         
                 <ArticlesList />
         </Fragment>
-        
     )
 }
 
-export default News;
+export default Articles;

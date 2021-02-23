@@ -25,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .ts, .tsx --color",
+    "format": "prettier --write 'src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +48,10 @@
     ]
   },
   "jest": {
-    "coverageReporters": ["text", "html"],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
     "coverageThreshold": {
       "src/**": {
         "branches": 30,
@@ -55,5 +60,14 @@
         "statements": 30
       }
     }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "prettier": "^2.2.1"
   }
 }

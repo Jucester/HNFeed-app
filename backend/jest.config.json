@@ -14,7 +14,6 @@
     },
     "collectCoverage": true,
     "collectCoverageFrom": [
-        
       "src/**/*.{js,ts}",
       "!**/node_modules/**",
       "!**/vendor/**"

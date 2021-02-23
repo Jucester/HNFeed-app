@@ -28,7 +28,7 @@ const Arti = styled.div`
         align-items: center;
     }
     .icon {
-        margin-left: 10px;
+        margin-left: 30px;
         width: 20px;
         height: 20px;
         
@@ -66,7 +66,6 @@ interface Props {
     loadArticles: () => void;
 }
 
-
 const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) => {
   
     const url = article.url || article.story_url;
@@ -75,12 +74,12 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
 
 
     // To change the visibility of the delete icon
-    const showButton = e => {
+    const showButton =( e : React.ChangeEvent<any>  ) => {
         e.preventDefault();
         setDisplay('displayed');
     };
 
-    const hideButton = e => {
+    const hideButton = ( e : React.ChangeEvent<any> ) => {
         e.preventDefault();
         setDisplay('notdisplayed');
     };
@@ -108,11 +107,11 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
     */
     const deleteRow = () => {
         // First get what we have in the removeds var from localStorage
-        let removeds = JSON.parse(localStorage.getItem('Removeds'));
+        let removeds = JSON.parse(localStorage.getItem('Removeds')!);
 
         // if the var is empty, then assign the first value
-        if(!removeds) {
-            localStorage.setItem('Removeds', article.story_id);
+        if(!removeds || removeds === '') {
+            localStorage.setItem('Removeds', article.story_id!);
             return;
         }
         // if not empty, then check if is already an array so we can push more items
@@ -136,7 +135,7 @@ const Article : FunctionComponent<Props>  = ({article, loadArticles} : Props ) =
     return (
         <div className="listElement">
             <Arti 
-                onClick={ ()=> navigateToExternalUrl(url, hover) }  
+                onClick={ ()=> navigateToExternalUrl(url || '', hover) }  
                 onMouseEnter={ e => showButton(e) }
                 onMouseLeave={ e => hideButton(e) } 
             >
